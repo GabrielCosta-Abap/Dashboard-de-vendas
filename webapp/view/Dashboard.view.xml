@@ -1,0 +1,326 @@
+<mvc:View
+    controllerName="summitns.dashboard.controller.Dashboard"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    class="sapUiSizeCompact"
+	xmlns="sap.m"
+	xmlns:viz="sap.viz.ui5.controls" 
+	xmlns:layout="sap.ui.layout"
+	xmlns:layout1="sap.ui.commons.layout"
+	xmlns:viz.data="sap.viz.ui5.data" height="100%"
+	xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"
+>
+	<Shell id="shell">
+		<App id="app">
+			<pages>
+				<Page id="page" title="Dashboard de Vendas e Remessas" >
+
+					<HBox>
+						<Table width="500px" 
+						noDataText="No data" 
+						mode="None" 
+						id="remessasErro"
+						showSeparators="All"
+						   class="sapUiSmallMargin">
+
+						   <columns>
+							   <Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Desktop" demandPopin="true" popinLayout="GridSmall" mergeDuplicates="false">
+								   <header>
+									   <Text text="Qtd remessas com ERRO" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+								   </header>
+								   <!-- <footer/> -->
+							   </Column>
+							   <Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+								   <header>
+									   <Text text="Qtd NF Importação Pendente" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+								   </header>
+								   <!-- <footer/> -->
+							   </Column>
+
+						   </columns>
+						   <items>
+							   <!-- <ColumnListItem type="Active">
+								   <cells>
+									   <ObjectIdentifier 
+									   title="" 
+									   text="{Zvbeln}" 
+									   titleActive="false" 
+									   visible="true"/>
+									   
+									   <Text 
+									   text="{Znfimp}" 
+									   width="auto" 
+									   maxLines="1" 
+									   wrapping="false" 
+									   textAlign="Center"
+									   textDirection="Inherit"
+									   visible="true"/>
+								   </cells>
+							   </ColumnListItem> -->
+
+						   </items>
+					   </Table>
+					</HBox>
+
+					<HBox>
+						<Table width="652.795166015625px"
+						 noDataText="No data" 
+						 mode="None" 
+						 id="pickingList"
+						 showSeparators="All"
+							class="sapUiSmallMargin">
+							<infoToolbar>
+								<Toolbar width="100%" height="auto" design="Auto" visible="false" enabled="true">
+									<content>
+										<Label text="Label" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+									</content>
+								</Toolbar>
+							</infoToolbar>
+							<headerToolbar>
+								<OverflowToolbar width="auto" height="auto" design="Transparent" visible="true" enabled="true">
+									<content>
+										<Title text="Picking list, confirmação de picking list" titleStyle="Auto" width="364.2187805175781px" textAlign="Begin" visible="true" wrapping="false"/>
+										<ToolbarSpacer width=""/>
+									</content>
+								</OverflowToolbar>
+							</headerToolbar>
+							<columns>
+								<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Phone" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+									<header>
+										<Text text="Data de criação" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+									</header>
+									<!-- <footer/> -->
+								</Column>
+								<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+									<header>
+										<Text text="Qtd RM" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+									</header>
+									<!-- <footer/> -->
+								</Column>
+								<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+									<header>
+										<Text text="Qtd linha" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+									</header>
+									<!-- <footer/> -->
+								</Column>
+								<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+									<header>
+										<Text text="Receita Bruta" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+									</header>
+									<!-- <footer/> -->
+								</Column>
+							</columns>
+							<items>
+								<!-- <ColumnListItem type="Active">
+									<cells>
+										<ObjectIdentifier title="" text="01/07/2021" titleActive="false" visible="true"/>
+										<Text text="2" width="auto" maxLines="1" wrapping="false" textAlign="Center" textDirection="Inherit" visible="true"/>
+										<ObjectNumber number="56" unit="" emphasized="true" state="None"/>
+										<ObjectNumber number="R$ 559,00" unit="" emphasized="true" state="None"/>
+									</cells>
+								</ColumnListItem>
+								<ColumnListItem type="Active">
+									<cells>
+										<ObjectIdentifier title="" text="01/07/2021" titleActive="false" visible="true"/>
+										<Text text="1" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+										<ObjectNumber number="89" unit="" emphasized="true" state="None"/>
+										<ObjectNumber number="R$ 567,00" unit="" emphasized="true" state="None"/>
+									</cells>
+								</ColumnListItem>
+								<ColumnListItem type="Active">
+									<cells>
+										<ObjectIdentifier title="" text="01/07/2021" titleActive="false" visible="true"/>
+										<Text text="5" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+										<ObjectNumber number="47" unit="" emphasized="true" state="None"/>
+										<ObjectNumber number="R$ 567,00" unit="" emphasized="true" state="None"/>
+									</cells>
+								</ColumnListItem>
+								<ColumnListItem type="Active">
+									<cells>
+										<ObjectIdentifier title="Total geral" text="" titleActive="false" visible="true"/>
+										<ObjectIdentifier title="8" text="" titleActive="false" visible="true"/>
+										<ObjectIdentifier title="192" text="" titleActive="false" visible="true"/>
+										<ObjectIdentifier title="R$ 1678,00" text="" titleActive="false" visible="true"/>
+									</cells>
+								</ColumnListItem> -->
+							</items>
+						</Table>
+
+						<Table width="492.82989501953125px" id="pedidosAgExpedicao" noDataText="No data" mode="None"
+						 showSeparators="All"
+						  class="sapUiSmallMargin">
+							<infoToolbar>
+								<Toolbar width="100%" height="auto" design="Auto" visible="false" enabled="true">
+									<content>
+										<Label text="Label" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+									</content>
+								</Toolbar>
+							</infoToolbar>
+							<headerToolbar>
+								<OverflowToolbar width="auto" height="auto" design="Transparent" visible="true" enabled="true">
+									<content>
+										<Title text="Qtd Pedidos Aguardando Expedição" titleStyle="Auto" width="364.2187805175781px" textAlign="Begin" visible="true" wrapping="false"/>
+										<ToolbarSpacer width=""/>
+									</content>
+								</OverflowToolbar>
+							</headerToolbar>
+							<columns>
+								<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Phone" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+									<header>
+										<Text text="Data de criação" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+									</header>
+									<footer/>
+								</Column>
+								<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+									<header>
+										<Text text="Qtd RM" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+									</header>
+									<footer/>
+								</Column>
+							</columns>
+							<items>
+								<!-- <ColumnListItem type="Active">
+									<cells>
+										<ObjectIdentifier title="" text="01/07/2021" titleActive="false" visible="true"/>
+										<Text text="2" width="auto" maxLines="1" wrapping="false" textAlign="Center" textDirection="Inherit" visible="true"/>
+									</cells>
+								</ColumnListItem>
+								<ColumnListItem type="Active">
+									<cells>
+										<ObjectIdentifier title="" text="01/07/2021" titleActive="false" visible="true"/>
+										<Text text="1" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+									</cells>
+								</ColumnListItem>
+								<ColumnListItem type="Active">
+									<cells>
+										<ObjectIdentifier title="" text="01/07/2021" titleActive="false" visible="true"/>
+										<Text text="5" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+									</cells>
+								</ColumnListItem>
+								<ColumnListItem type="Active">
+									<cells>
+										<ObjectIdentifier title="Total" text="" titleActive="false" visible="true"/>
+										<ObjectIdentifier title="8" text="" titleActive="false" visible="true"/>
+									</cells>
+								</ColumnListItem> -->
+							</items>
+						</Table>
+
+					</HBox>
+
+					<HBox>
+					<FlexBox>
+						<items>
+							<viz:VizFrame xmlns="sap.viz" id="idpiechart" vizType="pie" legendVisible="true">
+
+							</viz:VizFrame>
+						</items>
+					</FlexBox>
+
+					<VBox hAlign="Right">
+						<Table width="540px"
+						id="listaFaturamento"
+						noDataText="No data" 
+						mode="None" 
+						showSeparators="All" 
+						class="sapUiSmallMargin"
+						>
+					 <infoToolbar>
+						 <Toolbar width="100%" height="auto" design="Auto" visible="false" enabled="true">
+							 <content>
+								 <Label text="Label" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+							 </content>
+						 </Toolbar>
+					 </infoToolbar>
+					 <headerToolbar/>
+					 <headerToolbar>
+						 <OverflowToolbar width="auto" height="auto" design="Transparent" visible="true" enabled="true">
+							 <content>
+								 <Title text="Lista de Faturamento" titleStyle="Auto" width="364.2187805175781px" textAlign="Begin" visible="true" wrapping="false"/>
+								 <ToolbarSpacer width=""/>
+							 </content>
+						 </OverflowToolbar>
+					 </headerToolbar>
+					 <columns>
+						 <Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Phone" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+							 <header>
+								<Text text="Faturamento"></Text>
+							 </header>
+							 <footer/>
+						 </Column>
+						 <Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+							 <header>
+								 <Text text="Valor"></Text>
+							 </header>
+							 <footer/>
+						 </Column>
+					 </columns>
+					 <items>
+
+					 </items>
+				 </Table>
+
+					<Table width="540px" 
+					noDataText="No data" 
+					mode="None" 
+					id="bloqueioCredito"
+					showSeparators="All"
+					   class="sapUiSmallMargin">
+					   <columns>
+						   <Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Phone" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+							   <header>
+								   <Text text="Imediato" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+							   </header>
+							   <footer/>
+						   </Column>
+						   <Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+							   <header>
+								   <Text text="Não informado" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+							   </header>
+							   <footer/>
+						   </Column>
+						   <Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+							   <header>
+								   <Text text="Bloq. Crédito" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+							   </header>
+							   <footer/>
+						   </Column>
+					   </columns>
+					   <items>
+						   <!-- <ColumnListItem type="Active">
+							   <cells>
+								   <ObjectIdentifier title="" text="01/07/2021" titleActive="false" visible="true"/>
+								   <Text text="2" width="auto" maxLines="1" wrapping="false" textAlign="Center" textDirection="Inherit" visible="true"/>
+								   <ObjectNumber number="56" unit="" emphasized="true" state="None"/>
+							   </cells>
+						   </ColumnListItem>
+						   <ColumnListItem type="Active">
+							   <cells>
+								   <ObjectIdentifier title="" text="01/07/2021" titleActive="false" visible="true"/>
+								   <Text text="1" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+								   <ObjectNumber number="89" unit="" emphasized="true" state="None"/>
+							   </cells>
+						   </ColumnListItem>
+						   <ColumnListItem type="Active">
+							   <cells>
+								   <ObjectIdentifier title="" text="01/07/2021" titleActive="false" visible="true"/>
+								   <Text text="5" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+								   <ObjectNumber number="47" unit="" emphasized="true" state="None"/>
+							   </cells>
+						   </ColumnListItem>
+						   <ColumnListItem type="Active">
+							   <cells>
+								   <ObjectIdentifier title="Total geral" text="" titleActive="false" visible="true"/>
+								   <ObjectIdentifier title="8" text="" titleActive="false" visible="true"/>
+								   <ObjectIdentifier title="192" text="" titleActive="false" visible="true"/>
+							   </cells>
+						   </ColumnListItem> -->
+					   </items>
+				   </Table>
+				</VBox>
+				</HBox>
+				</Page>
+			</pages>
+		</App>
+	</Shell>
+</mvc:View>
